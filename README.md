@@ -7,6 +7,10 @@ getArrayFromDatabase($host, $database, $username, $password, $sql)
 - Returns an array of database rows that result from executing the SQL query.
 
 Example usage:
+```
+$dbRows = getArrayFromDatabase("localhost", "university", "macgyver", "mr-t-eats-bananas", "select * from student");
+print_r($dbRows);
+```
 
 ## CSV utilities
 
