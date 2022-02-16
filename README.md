@@ -8,7 +8,11 @@ getArrayFromDatabase($host, $database, $username, $password, $sql)
 
 Example usage:
 ```
-$dbRows = getArrayFromDatabase("localhost", "university", "macgyver", "mr-t-eats-bananas", "select * from student");
+$user = "macgyver";
+$pass = "mr-t-eats-bananas";
+$database = "university";
+$query = "select * from student";
+$dbRows = getArrayFromDatabase("localhost", $database, $user, $pass, $query);
 print_r($dbRows);
 ```
 
