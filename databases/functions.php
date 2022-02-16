@@ -1,7 +1,7 @@
 <?php
 
-function getArrayFromDb($database, $username, $password, $sql) {
-	$db = new PDO('mysql:host=localhost;dbname=' . $database, $username, $password);
+function getArrayFromDb($host, $database, $username, $password, $sql) {
+	$db = new PDO('mysql:host=' . $host . ';dbname=' . $database, $username, $password);
 	$rs = $db->query($sql);
 	$res = array();
 	foreach($rs as $row) {
@@ -12,7 +12,7 @@ function getArrayFromDb($database, $username, $password, $sql) {
 
 //$array = getArrayFromDb("empresa", "root", "", "select * from funcionarios");
 
-$array = getArrayFromDb("dp_old", "root", "", "select * from submission limit 0, 10");
+$array = getArrayFromDb("localhost", "dp_old", "root", "", "select * from submission limit 0, 10");
 
 echo "yolo<br>";
 print_r($array);
