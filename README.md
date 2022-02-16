@@ -15,5 +15,7 @@ writeArrayToCSV($array, $)
 - Writes the array's contents to a file
 
 Example usage:
+```
 $people = array(array("id" => 1, "name" => "bc"));
 writeArrayToCSV($people, "people.csv", "ID,NAME");
+```
