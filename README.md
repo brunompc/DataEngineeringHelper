@@ -1,4 +1,4 @@
-"# DataEngineeringHelper" 
+# DataEngineeringHelper
 
 ## Database utilities
 
@@ -18,7 +18,11 @@ print_r($dbRows);
 
 ## CSV utilities
 
-writeArrayToCSV($array, $)
+readArrayFromCSV($filename, $ignore_first_line = true)
+- 
+- SOON
+
+writeArrayToCSV($array, $filename, $header, $separator = ",")
 - Receives an array, the target CSV's filename and header, and an optional $separator which defaults to ",".
 - Writes the array's contents to a file
 
