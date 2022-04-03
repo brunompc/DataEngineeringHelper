@@ -26,6 +26,7 @@ function writeArrayToCSV($array, $filename, $header, $separator = ",", $columns_
 		}
 		$lines = $lines . $line . "\n";
 	}
+	$fp = fopen($filename, "w");
 	fwrite($fp, $lines);
 	fclose($fp);
 }
