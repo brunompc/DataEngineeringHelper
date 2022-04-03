@@ -2,6 +2,8 @@
 
 ## Database utilities
 
+These database utilities are not ready to handle SQL Injection, so they should only be used in controlled environments.
+
 getArrayFromDatabase($host, $database, $username, $password, $sql)
 - Receives database connection information and an SQL query.
 - Returns an array of database rows that result from executing the SQL query.
@@ -28,6 +30,9 @@ writeArrayToCSV($array, $filename, $header, $separator = ",")
 
 Example usage:
 ```
-$people = array(array("id" => 1, "name" => "bc"));
-writeArrayToCSV($people, "people.csv", "ID,NAME");
+$people = array(array("id" => 1, "name" => "bc"), array("id" => 2, "name" => "rcc"));
+$header = "ID,NAME";
+writeArrayToCSV($people, "people.csv", $header);
 ```
+
+## JSON utilities
