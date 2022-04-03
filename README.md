@@ -24,6 +24,14 @@ readArrayFromCSV($filename, $ignore_first_line = true)
 - reads a CSV file into an array
 - The argument $ignore_first_line should be used when the first line of the file is a header that should not be included in the array.
 
+Example usage:
+```
+$students = readArrayFromCSV("students.csv", true);
+echo "<pre>";
+print_r($students);
+echo "</pre>";
+```
+
 writeArrayToCSV($array, $filename, $header, $separator = ",")
 - Receives an array, the target CSV's filename and header, and an optional $separator which defaults to ",".
 - Writes the array's contents to a file
