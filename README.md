@@ -5,7 +5,7 @@
 These database utilities are not ready to properly handle potential SQL Injections, so they should only be used in controlled environments (i.e. not exposed to the 
 public).
 
-**getArrayFromDatabase($host, $database, $username, $password, $sql)**
+**getArrayFromDb($host, $database, $username, $password, $sql)**
 - Receives database connection information and an SQL query.
 - Returns an array of database rows that result from executing the SQL query.
 
@@ -15,7 +15,7 @@ $user = "macgyver";
 $pass = "mr-t-eats-bananas";
 $database = "university";
 $query = "select * from student";
-$dbRows = getArrayFromDatabase("localhost", $database, $user, $pass, $query);
+$dbRows = getArrayFromDb("localhost", $database, $user, $pass, $query);
 print_r($dbRows);
 ```
 
