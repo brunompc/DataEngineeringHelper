@@ -1,5 +1,7 @@
 # DataEngineeringHelper
 
+A set of PHP utilities to help with common data engineering tasks.
+
 ## Database utilities
 
 These database utilities are not ready to properly handle potential SQL Injections, so they should only be used in controlled environments (i.e. not exposed to the 
@@ -45,3 +47,7 @@ writeArrayToCSV($people, "people.csv", $header);
 ```
 
 ## JSON utilities
+Nothing available yet.
+
+## (Generic) Array utilities
+Nothing available yet.
