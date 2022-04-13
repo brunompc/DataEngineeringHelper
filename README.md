@@ -85,8 +85,8 @@ function moreThanFiveLetters($str) {
 	return strlen($str) >= 5;
 }
 $array = array(array("id" => -1, "name" => "Neo"), 
-			array("id" => 1, "name" => "MacGyver"), 
-			array("id" => 2, "name" => "Donald Duck"));
+		array("id" => 1, "name" => "MacGyver"), 
+		array("id" => 2, "name" => "Donald Duck"));
 // field "id" will be validated by function largerThanZero($nr)
 // while field "name" will be validated by function moreThanFiveLetters($str)
 $fields_and_functions = array("id" => "maiorQueZero", "name" => "moreThanFiveLetters");
@@ -99,3 +99,19 @@ $res = remove_if_not_multi($array, $fields_and_functions);
 - If the argument $return_unmatched_arrays is true, then the function will return an array of arrays, where 
 the fist element is the array with the result of the merge, and the second element is an array with the unmatched lines from both sources.
 
+```Example usage:
+$data1 = array(
+		array("id" => 123, "name" => "Neo"),
+		array("id" => 456, "name" => "Jack"),
+		array("id" => 333, "name" => "Peter"));
+
+$data2 = array(
+		array("p_id" => "123", "surname" => "(The One)"),
+		array("p_id" => "456", "surname" => "Sparrow"),
+		array("p_id" => "777", "surname" => "Trinity"));
+
+// this call with merge the first two entries of each array.
+// the last entry of each array is not merged because 333 only exists in $source_1 
+// and 777 only exists in $source2.
+$merged = merge_data_sources($data1, $data2, "id", "p_id")
+```
