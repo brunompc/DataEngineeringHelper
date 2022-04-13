@@ -64,8 +64,8 @@ function maiorQueZero($n) {
 	return $n > 0;
 }
 $array = array(array("id" => -1, "name" => "Neo"), 
-				array("id" => 1, "name" => "MacGyver"), 
-				array("id" => 2, "name" => "Donald Duck"));
+		array("id" => 1, "name" => "MacGyver"), 
+		array("id" => 2, "name" => "Donald Duck"));
 $res = remove_if_not($array, "id", "maiorQueZero");
 ```
 
@@ -84,7 +84,11 @@ function maiorQueZero($n) {
 function maisDeCincoLetras($str) {
 	return strlen($str) >= 5;
 }
-$array = array(array("id" => -1, "name" => "Neo"), array("id" => 1, "name" => "MacGyver"), array("id" => 2, "name" => "Donald Duck"));
+$array = array(array("id" => -1, "name" => "Neo"), 
+array("id" => 1, "name" => "MacGyver"), 
+array("id" => 2, "name" => "Donald Duck"));
+// field "id" will be validated by function maiorQueZero()"
+// while field "name" will be validated by function "maisDeCincoLetras()"
 $fields_and_functions = array("id" => "maiorQueZero", "name" => "maisDeCincoLetras");
 $res = remove_if_not_multi($array, $fields_and_functions);
 ```
