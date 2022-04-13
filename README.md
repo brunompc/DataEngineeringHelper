@@ -63,7 +63,9 @@ is false, the second array will be empty.
 function maiorQueZero($n) {
 	return $n > 0;
 }
-$array = array(array("id" => -1, "name" => "Neo"), array("id" => 1, "name" => "MacGyver"), array("id" => 2, "name" => "Donald Duck"));
+$array = array(array("id" => -1, "name" => "Neo"), 
+				array("id" => 1, "name" => "MacGyver"), 
+				array("id" => 2, "name" => "Donald Duck"));
 $res = remove_if_not($array, "id", "maiorQueZero");
 ```
 
