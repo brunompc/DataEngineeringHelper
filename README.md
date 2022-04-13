@@ -89,11 +89,11 @@ $array = array(array("id" => -1, "name" => "Neo"),
 		array("id" => 2, "name" => "Donald Duck"));
 // field "id" will be validated by function largerThanZero($nr)
 // while field "name" will be validated by function moreThanFiveLetters($str)
-$fields_and_functions = array("id" => "maiorQueZero", "name" => "moreThanFiveLetters");
+$fields_and_functions = array("id" => "largerThanZero", "name" => "moreThanFiveLetters");
 $res = remove_if_not_multi($array, $fields_and_functions);
 ```
 
-**merge_data_sources($source_1, $source_22, $key_s1, $key_s2, $ignore_unmatched_arrays, $return_unmatched_arrays)**
+**merge_arrays($arr_1, $arr_2, $key_s1, $key_s2, $ignore_unmatched_arrays, $return_unmatched_arrays)**
 - Receives two arrays and the identifiers of two keys and merges the two arrays whenever the values of each array/key are the same.
 - If the argument $ignore_unmatched_arrays is true, then 
 - If the argument $return_unmatched_arrays is true, then the function will return an array of arrays, where 
@@ -110,8 +110,8 @@ $data2 = array(
 		array("p_id" => "456", "surname" => "Sparrow"),
 		array("p_id" => "777", "surname" => "Trinity"));
 
-// this call with merge the first two entries of each array.
-// the last entry of each array is not merged because 333 only exists in $source_1 
-// and 777 only exists in $source2.
+// This call with merge the first two entries of each array.
+// The last entry of each array is not merged because 333 only exists in $data1 
+// and 777 only exists in $data2.
 $merged = merge_data_sources($data1, $data2, "id", "p_id")
 ```

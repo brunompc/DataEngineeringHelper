@@ -7,8 +7,8 @@
 	will contain the result of merging the two sources. The second sub-array will
 	contain the unmatched sub-arrays from either source.
 	
-	* $source1 is an array of arrays;
-	* $source2 is an array of arrays;
+	* $arr_1 is an array of arrays;
+	* $arr_2 is an array of arrays;
 	* $s1_key is the key of $source1 that will be used to match against $source2
 	* $s2_key is the key of $source2 that will be used to match against $source1
 	* $ignore_unpaired_arrays is a boolean. If true, any sub-array of $source1/$source2 
@@ -18,7 +18,7 @@
 	that is not matched with an element of $source2/$source1 will be returned in the 
 	second array that the function returns. Defaults to false.
 */
-function merge_data_sources($source1, $source2, $s1_key, $s2_key, $ignore_unpaired_arrays = false, $return_unpaired_arrays = false) {
+function merge_arrays($arr_1, $arr_2, $s1_key, $s2_key, $ignore_unpaired_arrays = false, $return_unpaired_arrays = false) {
 
 	$unpaired = array();
 	$result = array();
@@ -26,12 +26,12 @@ function merge_data_sources($source1, $source2, $s1_key, $s2_key, $ignore_unpair
 	$linear_source1 = array();
 	$linear_source2 = array();
 	
-	for($i=0; $i<count($source1); $i++) {
-		$linear_source1[$source1[$i][$s1_key]] = $source1[$i];
+	for($i=0; $i<count($arr_1); $i++) {
+		$linear_source1[$arr_1[$i][$s1_key]] = $arr_1[$i];
 	}
 
-	for($j=0; $j<count($source2); $j++) {
-		$linear_source2[$source2[$j][$s2_key]] = $source2[$j];
+	for($j=0; $j<count($arr_2); $j++) {
+		$linear_source2[$arr_2[$j][$s2_key]] = $arr_2[$j];
 	}
 	
 	foreach($linear_source1 as $key => $value) {
