@@ -60,13 +60,13 @@ Nothing available yet.
 is false, the second array will be empty.
 
 ```Example usage:
-function maiorQueZero($n) {
+function largerThanZero($n) {
 	return $n > 0;
 }
 $array = array(array("id" => -1, "name" => "Neo"), 
 		array("id" => 1, "name" => "MacGyver"), 
 		array("id" => 2, "name" => "Donald Duck"));
-$res = remove_if_not($array, "id", "maiorQueZero");
+$res = remove_if_not($array, "id", "largerThanZero");
 ```
 
 **remove_if_not_multi($array, $fields_and_functions, $return_ignored_arrays)**
@@ -78,18 +78,18 @@ will be used to validate that field's value;
 is false, the second array will be empty.
 
 ```Example usage:
-function maiorQueZero($n) {
+function largerThanZero($n) {
 	return $n > 0;
 }
-function maisDeCincoLetras($str) {
+function moreThanFiveLetters($str) {
 	return strlen($str) >= 5;
 }
 $array = array(array("id" => -1, "name" => "Neo"), 
-array("id" => 1, "name" => "MacGyver"), 
-array("id" => 2, "name" => "Donald Duck"));
-// field "id" will be validated by function maiorQueZero()"
-// while field "name" will be validated by function "maisDeCincoLetras()"
-$fields_and_functions = array("id" => "maiorQueZero", "name" => "maisDeCincoLetras");
+			array("id" => 1, "name" => "MacGyver"), 
+			array("id" => 2, "name" => "Donald Duck"));
+// field "id" will be validated by function largerThanZero($nr)
+// while field "name" will be validated by function moreThanFiveLetters($str)
+$fields_and_functions = array("id" => "maiorQueZero", "name" => "moreThanFiveLetters");
 $res = remove_if_not_multi($array, $fields_and_functions);
 ```
 
