@@ -50,4 +50,25 @@ writeArrayToCSV($people, "people.csv", $header);
 Nothing available yet.
 
 ## (Generic) Array utilities
-Nothing available yet.
+**remove_if_not($array, $field, $validation_function, $return_ignored_arrays)**
+- Creates an array based on argument $array, excluding any element whose value for argument $field is not valid according the argument $validation_function.
+- $array is an array
+- $field is a string or integer, identifying the array element that will be tested
+- $validation_function is the name of a function that receives one argument and returns a boolean
+- $return_ignored_arrays is a boolean, indicating
+- Returns: an array with two elements; The first element is the filtered array. The second element is an array with the ignored sub-arrays. If $return_ignored_arrays
+is false, the second array will be empty.
+
+**remove_if_not_multi($array, $fields_and_functions, $return_ignored_arrays)**
+- Similar to remove_if_not(), but supports checking multiple fields, using different functions per field.
+- $fields_and_functions is an associative array, where the key is the name of a field/index that exists in sub-arrays of $array, and the value is a function that
+will be used to validate that field's value.
+- Returns: an array with two elements; The first element is the filtered array. The second element is an array with the ignored sub-arrays. If $return_ignored_arrays
+is false, the second array will be empty.
+
+**merge_data_sources($source_1, $source_22, $key_s1, $key_s2, $ignore_unmatched_arrays, $return_unmatched_arrays)**
+- Receives two arrays and the identifiers of two keys and merges the two arrays whenever the values of each array/key are the same.
+- If the argument $ignore_unmatched_arrays is true, then 
+- If the argument $return_unmatched_arrays is true, then the function will return an array of arrays, where 
+the fist element is the array with the result of the merge, and the second element is an array with the unmatched lines from both sources.
+
