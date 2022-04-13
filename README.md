@@ -52,19 +52,40 @@ Nothing available yet.
 ## (Generic) Array utilities
 **remove_if_not($array, $field, $validation_function, $return_ignored_arrays)**
 - Creates an array based on argument $array, excluding any element whose value for argument $field is not valid according the argument $validation_function.
-- $array is an array
-- $field is a string or integer, identifying the array element that will be tested
-- $validation_function is the name of a function that receives one argument and returns a boolean
-- $return_ignored_arrays is a boolean, indicating
+- $array is an array;
+- $field is a string or integer, identifying the array element that will be tested;
+- $validation_function is the name of a function that receives one argument and returns a boolean;
+- $return_ignored_arrays is a boolean, indicating if the ignored sub-arrays shall be returned as an independent value. Defaults to false;
 - Returns: an array with two elements; The first element is the filtered array. The second element is an array with the ignored sub-arrays. If $return_ignored_arrays
 is false, the second array will be empty.
+
+```Example usage:
+function maiorQueZero($n) {
+	return $n > 0;
+}
+$array = array(array("id" => -1, "name" => "Neo"), array("id" => 1, "name" => "MacGyver"), array("id" => 2, "name" => "Donald Duck"));
+$res = remove_if_not($array, "id", "maiorQueZero");
+```
 
 **remove_if_not_multi($array, $fields_and_functions, $return_ignored_arrays)**
 - Similar to remove_if_not(), but supports checking multiple fields, using different functions per field.
 - $fields_and_functions is an associative array, where the key is the name of a field/index that exists in sub-arrays of $array, and the value is a function that
-will be used to validate that field's value.
+will be used to validate that field's value;
+- $return_ignored_arrays is a boolean, indicating if the ignored sub-arrays shall be returned as an independet value. Defaults to false;
 - Returns: an array with two elements; The first element is the filtered array. The second element is an array with the ignored sub-arrays. If $return_ignored_arrays
 is false, the second array will be empty.
+
+```Example usage:
+function maiorQueZero($n) {
+	return $n > 0;
+}
+function maisDeCincoLetras($str) {
+	return strlen($str) >= 5;
+}
+$array = array(array("id" => -1, "name" => "Neo"), array("id" => 1, "name" => "MacGyver"), array("id" => 2, "name" => "Donald Duck"));
+$fields_and_functions = array("id" => "maiorQueZero", "name" => "maisDeCincoLetras");
+$res = remove_if_not_multi($array, $fields_and_functions);
+```
 
 **merge_data_sources($source_1, $source_22, $key_s1, $key_s2, $ignore_unmatched_arrays, $return_unmatched_arrays)**
 - Receives two arrays and the identifiers of two keys and merges the two arrays whenever the values of each array/key are the same.
