@@ -10,7 +10,6 @@ function writeArrayToCSV($array, $filename, $header = null, $separator = ",", $c
 		$line = "";
 		$first = true;
 		foreach($array[$i] as $column=>$value) {
-			//if($column)
 			if(!$first) {
 				$line = $line . $separator;
 			}
