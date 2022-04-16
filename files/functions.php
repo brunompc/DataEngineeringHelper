@@ -10,9 +10,11 @@ print_r($array);
 
 writeArrayToCSV($array, "teste.csv.txt", "ID,NOME", ",");
 
-function writeArrayToCSV($array, $filename, $header, $separator = ",", $columns_to_exclude = null) {
-	$fp = fopen($filename, "w");
-	$lines = "" . $header . "\n";
+function writeArrayToCSV($array, $filename, $header = null, $separator = ",", $columns_to_exclude = null) {
+	$lines = "";
+	if($header != null) {
+		$lines = $header . "\n";
+	}
 	for($i = 0; $i < sizeof($array); $i++) {
 		$line = "";
 		$first = true;
