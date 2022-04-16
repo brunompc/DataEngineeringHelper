@@ -1,11 +1,11 @@
 <?php
 
-function writeArrayToFile($array, $filename, $append = false) {
+function writeArrayToFile($array, $filename) {
 	// lazy town
 	writeArraytoCSV($array, $filename, null);
 }
 
-function writeArrayToCSV($array, $filename, $header = null, $separator = ",", $columns_to_exclude = null) {
+function writeArrayToCSV($array, $filename, $header = null, $separator = ",") {
 	$lines = "";
 	if($header != null) {
 		$lines = $header . "\n";
