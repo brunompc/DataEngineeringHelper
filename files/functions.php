@@ -32,10 +32,9 @@ function writeArrayToCSV($array, $filename, $header, $separator = ",", $columns_
 }
 
 function readArrayFromCSV($filename, $ignore_first_line = true, $separator = ",") {
-	$fp = fopen($filename, "r");
-	echo $fp;
 	$result = array();
 	$first_line = true;
+	$fp = fopen($filename, "r");
 	while(!feof($fp)) {
 		$line = fgets($fp);
 		if($first_line && $ignore_first_line) {
