@@ -1,14 +1,5 @@
 <?php
 
-$array = array(
-				array("id" => 0, "nome" => "Bruno"),
-				array("id" => 1, "nome" => "Rodrigo"),
-				array("id" => 2, "nome" => "Raquel"),
-				array("id" => 3, "nome" => "Sara"));
-
-print_r($array);
-
-writeArrayToCSV($array, "teste.csv.txt", "ID,NOME", ",");
 
 function writeArrayToCSV($array, $filename, $header = null, $separator = ",", $columns_to_exclude = null) {
 	$lines = "";
