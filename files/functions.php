@@ -1,5 +1,9 @@
 <?php
 
+function writeArrayToFile($array, $filename, $append = false) {
+	// lazy town
+	writeArraytoCSV($array, $filename, null);
+}
 
 function writeArrayToCSV($array, $filename, $header = null, $separator = ",", $columns_to_exclude = null) {
 	$lines = "";
@@ -10,7 +14,6 @@ function writeArrayToCSV($array, $filename, $header = null, $separator = ",", $c
 		$line = "";
 		$first = true;
 		foreach($array[$i] as $column=>$value) {
-			//if($column)
 			if(!$first) {
 				$line = $line . $separator;
 			}
