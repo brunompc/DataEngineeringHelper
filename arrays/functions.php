@@ -1,5 +1,7 @@
 <?php
 
+require_once ("filters.php");
+
 /**
 	Merges two arrays, considering the respective values for specific keys.
 	
@@ -7,6 +9,7 @@
 	will contain the result of merging the two sources. The second sub-array will
 	contain the unmatched sub-arrays from either source.
 	
+	Arguments:
 	* $arr_1 is an array of arrays;
 	* $arr_2 is an array of arrays;
 	* $s1_key is the key of $source1 that will be used to match against $source2
@@ -17,6 +20,9 @@
 	* $return_unpaired_arrays is a boolean. If true, any sub-array of $source1/$source2
 	that is not matched with an element of $source2/$source1 will be returned in the 
 	second array that the function returns. Defaults to false.
+	
+	Returns:
+	* An array of arrays;
 */
 function merge_arrays($arr_1, $arr_2, $s1_key, $s2_key, $ignore_unpaired_arrays = false, $return_unpaired_arrays = false) {
 
