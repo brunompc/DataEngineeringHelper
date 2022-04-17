@@ -22,8 +22,9 @@ function writeArrayToFile($array, $filename) {
  * - $array an array that will be written to a file
  * - $filename is a string with the name of the file where the array will be written
  * - $header is an array of strings. Each string should correspond to the name of a CSV column.
- * - $separator is a string with the separator that will be used between each value that is written to the file
- 
+ * - $separator is a string with the separator that will be used between each value that is 
+ *   written to the file
+ *
  * Returns: void
  *
  */
@@ -55,7 +56,8 @@ function writeArrayToCSV($array, $filename, $header = null, $separator = ",") {
  *
  * Arguments:
  * - $filename is a string with the name of the file that should be read;
- * - $ignore_first_line is a boolean, indicating if the file's first line should be read or ignored (i.e. if it contains a header that should not be placed in the array);
+ * - $ignore_first_line is a boolean, indicating if the file's first line should be read or 
+ *   ignored (i.e. if it contains a header that should not be placed in the array);
  * - $separator is a string with the value-separator that is used in the file. Defaults to ",".
  * Returns:
  * - an array
