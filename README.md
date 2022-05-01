@@ -115,3 +115,21 @@ $data2 = array(
 // and 777 only exists in $data2.
 $merged = merge_data_sources($data1, $data2, "id", "p_id")
 ```
+
+## Full Example
+
+require_once(“DataEngineeringHelper\\functions.php”);
+
+function atLeastFiveChars($string) {
+	return strlen($string) >= 5;
+}
+
+// get all the records from a DB table
+$students = getArrayFromDb("localhost", "school_records", "root", "", "select \* from students");
+
+// Remove any records which have less than 5 chars in the field "name"
+$filtered_students = remove_if_not_by_field($registos, "name", "atLeastFiveChars");
+$valid_students = $filtered_students[0];
+
+// Write the remaining records to a CSV file
+writeArrayToCSV($registos_validos, "dados.csv");
