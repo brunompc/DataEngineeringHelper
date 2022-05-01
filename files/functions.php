@@ -68,12 +68,14 @@ function readArrayFromCSV($filename, $ignore_first_line = true, $separator = ","
 	$first_line = true;
 	$fp = fopen($filename, "r");
 	while(!feof($fp)) {
-		$line = fgets($fp);
+		//$line = fgets($fp);
+		$line = fgetcsv($fp, null, $separator);
 		if($first_line && $ignore_first_line) {
 			$first_line = false;
 			continue;
 		}
-		$result[] = explode($separator, $line);
+		//$result[] = explode($separator, $line);
+		$result[] = $line;
 	}
 	return $result;
 }
