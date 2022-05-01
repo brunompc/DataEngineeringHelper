@@ -135,7 +135,7 @@ $filtered_students = remove_if_not_by_field($registos, "name", "atLeastFiveChars
 $valid_students = $filtered_students[0];
 
 // Write the remaining records to a CSV file
-writeArrayToCSV($registos_validos, "dados.csv");
+writeArrayToCSV($valid_students, "students.csv");
 
 ?>
 ```
