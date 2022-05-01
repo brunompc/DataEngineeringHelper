@@ -128,11 +128,9 @@ function atLeastFiveChars($string) {
 }
 
 // get all the records from a DB table
-
-$students = getArrayFromDb("localhost", "school_records", "root", "", "select \* from students");
+$students = getArrayFromDb("localhost", "school_records", "root", "", "select * from students");
 
 // Remove any records which have less than 5 chars in the field "name"
-
 $filtered_students = remove_if_not_by_field($registos, "name", "atLeastFiveChars");
 $valid_students = $filtered_students[0];
 
